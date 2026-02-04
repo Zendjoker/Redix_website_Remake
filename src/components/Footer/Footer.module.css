@@ -1,34 +1,36 @@
 /* src/components/Footer/Footer.module.css */
+/* Premium Footer - Marketing Agency */
+
 .footer {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a0a 100%);
+  background: linear-gradient(180deg, #0a0a0a 0%, rgba(10, 10, 10, 1) 50%, #0a0a0a 100%);
   position: relative;
-  padding: 6rem 0 2rem;
+  padding: 4rem 0 2rem;
   overflow: hidden;
 }
 
-/* Animated Background Elements */
+/* Subtle Background Glows */
 .backgroundGlow1,
 .backgroundGlow2 {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(120px);
   pointer-events: none;
   z-index: 1;
 }
 
 .backgroundGlow1 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(193, 45, 224, 0.15), transparent);
-  top: 20%;
-  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(193, 45, 224, 0.04), transparent 60%);
+  top: 10%;
+  left: -15%;
 }
 
 .backgroundGlow2 {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(232, 86, 255, 0.1), transparent);
-  bottom: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(120, 23, 182, 0.03), transparent 60%);
+  bottom: 5%;
   right: -10%;
 }
 
@@ -45,17 +47,18 @@
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--primary-color);
+  width: 3px;
+  height: 3px;
+  background: rgba(193, 45, 224, 0.6);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(193, 45, 224, 0.5);
+  box-shadow: 0 0 12px rgba(193, 45, 224, 0.25);
+  opacity: 0.4;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
   position: relative;
   z-index: 2;
 }
@@ -63,8 +66,8 @@
 .footerMain {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
 }
 
 /* Company Section */
@@ -82,13 +85,18 @@
 }
 
 .logo {
-  height: 50px;
+  height: 48px;
   width: auto;
-  filter: drop-shadow(0 0 15px rgba(193, 45, 224, 0.4));
+  filter: drop-shadow(0 0 20px rgba(193, 45, 224, 0.35));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 30px rgba(193, 45, 224, 0.5));
 }
 
 .companyName {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   background: var(--primary-gradient);
   -webkit-background-clip: text;

@@ -14,7 +14,7 @@ export const services = [
     ],
     technologies: ["React", "Vue.js", "Node.js", "MongoDB", "PostgreSQL"],
     pricing: "Starting from 500 TND",
-    MostPopular: false,
+    MostPopular: true,
     common: true
   },
   {

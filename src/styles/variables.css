@@ -1,28 +1,40 @@
 /* src/styles/variables.css */
+/* Premium Marketing Agency Design System - Lunar Strategy Inspired */
 
 :root {
-  /* Colors - Primary Palette */
+  /* Colors - Primary Palette (Vibrant Purple) */
   --primary-color: #c12de0;
-  --primary-light: #e856ff;
-  --primary-dark: #9f1cc9;
-  --primary-gradient: linear-gradient(135deg, #c12de0, #e856ff);
-  --primary-gradient-reverse: linear-gradient(135deg, #e856ff, #c12de0);
+  --primary-light: #d65aec;
+  --primary-dark: #7817b6;
+  --primary-gradient: linear-gradient(135deg, #7817b6 0%, #c12de0 50%, #d65aec 100%);
+  --primary-gradient-reverse: linear-gradient(135deg, #d65aec, #c12de0, #7817b6);
+  --primary-glow: rgba(193, 45, 224, 0.4);
   
-  /* Colors - Neutral Palette */
+  /* Colors - Secondary Accent (Cyan/Teal) */
+  --secondary-color: #06b6d4;
+  --secondary-light: #22d3ee;
+  --secondary-dark: #0891b2;
+  
+  /* Colors - Neutral Palette (Deep Space) */
   --dark-bg: #0a0a0a;
-  --dark-secondary: #1a0a1a;
-  --light-text: #ffffff;
-  --gray-text: #8a8a8a;
-  --gray-light: #b0b0b0;
-  --gray-dark: #6a6a6a;
+  --dark-secondary: #0f0f0f;
+  --dark-tertiary: #141414;
+  --dark-elevated: #121212;
+  --light-text: #f8fafc;
+  --gray-text: #94a3b8;
+  --gray-light: #cbd5e1;
+  --gray-dark: #64748b;
+  --muted-text: #475569;
   
   /* Colors - Accent Colors */
-  --accent-purple: #8b5cf6;
+  --accent-purple: #c12de0;
   --accent-pink: #ec4899;
-  --accent-blue: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
   --accent-green: #10b981;
   --accent-orange: #f59e0b;
   --accent-red: #ef4444;
+  --accent-gold: #fbbf24;
   
   /* Colors - Semantic Colors */
   --success-color: #10b981;
@@ -30,21 +42,30 @@
   --warning-color: #f59e0b;
   --info-color: #06b6d4;
   
+  /* Colors - Glass Morphism */
+  --glass-bg: rgba(10, 10, 10, 0.6);
+  --glass-bg-light: rgba(255, 255, 255, 0.03);
+  --glass-bg-hover: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(193, 45, 224, 0.15);
+  --glass-border-hover: rgba(193, 45, 224, 0.35);
+  
   /* Colors - Background Variations */
-  --bg-card: rgba(255, 255, 255, 0.02);
-  --bg-card-hover: rgba(255, 255, 255, 0.05);
-  --bg-overlay: rgba(0, 0, 0, 0.8);
+  --bg-card: rgba(10, 10, 10, 0.5);
+  --bg-card-hover: rgba(20, 20, 20, 0.7);
+  --bg-overlay: rgba(10, 10, 10, 0.85);
   --bg-modal: rgba(10, 10, 10, 0.95);
   
   /* Colors - Border Colors */
-  --border-color: rgba(193, 45, 224, 0.1);
+  --border-color: rgba(193, 45, 224, 0.12);
   --border-color-hover: rgba(193, 45, 224, 0.3);
   --border-color-focus: rgba(193, 45, 224, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.06);
   
-  /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  /* Typography - Premium Font Stack */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-secondary: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   
   /* Font Sizes */
   --text-xs: 0.75rem;      /* 12px */
@@ -116,16 +137,19 @@
   --border-radius-3xl: 24px;
   --border-radius-full: 9999px;
   
-  /* Box Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
-  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-primary: 0 10px 30px rgba(193, 45, 224, 0.2);
-  --shadow-primary-lg: 0 20px 40px rgba(193, 45, 224, 0.3);
+  /* Box Shadows - Premium */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+  --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.3);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 40px rgba(168, 85, 247, 0.25);
+  --shadow-glow-lg: 0 0 80px rgba(168, 85, 247, 0.35);
+  --shadow-primary: 0 8px 32px rgba(168, 85, 247, 0.25);
+  --shadow-primary-lg: 0 16px 48px rgba(168, 85, 247, 0.35);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(168, 85, 247, 0.1);
   
   /* Transitions */
   --transition: all 0.3s ease;

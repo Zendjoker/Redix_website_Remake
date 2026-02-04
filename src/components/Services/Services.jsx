@@ -40,6 +40,8 @@ const Services = () => {
     }));
   }, [iconMap]);
 
+  const totalServices = enhancedServices.length;
+
   // Mobile detection
   useEffect(() => {
     const checkMobile = () => {
@@ -50,24 +52,21 @@ const Services = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Navigation handlers
+  // Get visible cards count
+  const getVisibleCards = useCallback(() => {
+    if (isMobile) return 1;
+    if (typeof window !== 'undefined' && window.innerWidth < 1200) return 2;
+    return 3;
+  }, [isMobile]);
+
+  // Navigation handlers - Infinite loop
   const handlePrev = useCallback(() => {
-    setCurrentIndex(prev => {
-      if (prev === 0) {
-        return enhancedServices.length - 1;
-      }
-      return prev - 1;
-    });
-  }, [enhancedServices.length]);
+    setCurrentIndex(prev => (prev - 1 + totalServices) % totalServices);
+  }, [totalServices]);
 
   const handleNext = useCallback(() => {
-    setCurrentIndex(prev => {
-      if (prev === enhancedServices.length - 1) {
-        return 0;
-      }
-      return prev + 1;
-    });
-  }, [enhancedServices.length]);
+    setCurrentIndex(prev => (prev + 1) % totalServices);
+  }, [totalServices]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -85,21 +84,21 @@ const Services = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [handleNext, handlePrev, showChatPopup]);
 
-  // Calculate visible cards based on screen size
-  const getVisibleCards = () => {
-    if (isMobile) return 1;
-    if (window.innerWidth < 1200) return 2;
-    return 3;
-  };
-
-  // Calculate transform based on current index
-  const getTransform = () => {
-    const visibleCards = getVisibleCards();
-    const cardWidth = isMobile ? 100 : 100 / visibleCards;
-    const gap = isMobile ? 1 : 1.333;
+  // Get the visible services in infinite loop order
+  const getVisibleServices = useCallback(() => {
+    const visibleCount = getVisibleCards();
+    const result = [];
     
-    return `calc(-${currentIndex * cardWidth}% - ${currentIndex * gap}rem)`;
-  };
+    for (let i = 0; i < visibleCount; i++) {
+      const index = (currentIndex + i) % totalServices;
+      result.push({
+        ...enhancedServices[index],
+        displayIndex: i
+      });
+    }
+    
+    return result;
+  }, [currentIndex, enhancedServices, totalServices, getVisibleCards]);
 
   // Handle get quote
   const handleGetQuote = useCallback((service) => {
@@ -111,6 +110,8 @@ const Services = () => {
     setShowChatPopup(false);
     setSelectedService(null);
   }, []);
+
+  const visibleServices = getVisibleServices();
 
   return (
     <section ref={sectionRef}  id="services"  className={styles.section}>
@@ -149,29 +150,22 @@ const Services = () => {
 
           {/* Carousel */}
           <div className={styles.carouselWrapper} ref={carouselRef}>
-            <motion.div
-              className={styles.carousel}
-              animate={{
-                x: getTransform()
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30
-              }}
-            >
-              {enhancedServices.map((service, index) => (
-                <motion.div
-                  key={service.id}
-                  className={styles.cardWrapper}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <ServiceCard service={service} onGetQuote={handleGetQuote} />
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className={styles.carousel}>
+              <AnimatePresence mode="popLayout">
+                {visibleServices.map((service, index) => (
+                  <motion.div
+                    key={`${service.id}-${currentIndex}-${index}`}
+                    className={styles.cardWrapper}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -50 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                  >
+                    <ServiceCard service={service} onGetQuote={handleGetQuote} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Indicators */}

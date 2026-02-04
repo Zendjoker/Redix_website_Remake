@@ -1,14 +1,14 @@
 /* src/components/DevProject/DevProject.module.css */
+/* Premium Portfolio Section - Marketing Agency */
 
 .portfolioSection {
     padding: 8rem 0 6rem;
     position: relative;
     overflow: hidden;
-
     min-height: 100vh;
 }
 
-/* Enhanced Background Effects */
+/* Premium Background Effects */
 .backgroundEffects {
     position: absolute;
     top: 0;
@@ -21,26 +21,26 @@
 
 .gradientOrb1 {
     position: absolute;
-    top: 10%;
-    right: 15%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(193, 45, 224, 0.15) 0%, transparent 70%);
+    top: 5%;
+    right: 10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 60%);
     border-radius: 50%;
-    filter: blur(80px);
-    animation: float 20s ease-in-out infinite;
+    filter: blur(100px);
+    animation: float 25s ease-in-out infinite;
 }
 
 .gradientOrb2 {
     position: absolute;
-    bottom: 20%;
-    left: 10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(45, 193, 224, 0.1) 0%, transparent 70%);
+    bottom: 15%;
+    left: 5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 60%);
     border-radius: 50%;
-    filter: blur(60px);
-    animation: float 25s ease-in-out infinite reverse;
+    filter: blur(80px);
+    animation: float 30s ease-in-out infinite reverse;
 }
 
 .gridPattern {
@@ -50,36 +50,34 @@
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(168, 85, 247, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 30%, transparent 70%);
 }
 
 @keyframes float {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0px) rotate(0deg);
     }
-
     33% {
-        transform: translateY(-20px) rotate(5deg);
+        transform: translateY(-30px) rotate(3deg);
     }
-
     66% {
-        transform: translateY(10px) rotate(-3deg);
+        transform: translateY(15px) rotate(-2deg);
     }
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 2.5rem;
     position: relative;
     z-index: 2;
 }
 
-/* Modern Header Section */
+/* Premium Header Section */
 .headerSection {
     text-align: center;
     margin-bottom: 5rem;
@@ -88,16 +86,19 @@
 .headerBadge {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    background: rgba(193, 45, 224, 0.1);
-    border: 1px solid rgba(193, 45, 224, 0.3);
-    backdrop-filter: blur(20px);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    gap: 0.625rem;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 0.625rem 1.5rem;
+    border-radius: 100px;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     transition: all 0.3s ease;
 }
 

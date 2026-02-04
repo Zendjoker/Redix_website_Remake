@@ -40,28 +40,25 @@ const Testimonials = () => {
   // Animation variants
   const cardVariants = {
     enter: {
-      x: 300,
+      x: 100,
       opacity: 0,
-      scale: 0.9,
-      rotateY: 20
+      scale: 0.95
     },
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
-      rotateY: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
         ease: [0.25, 0.46, 0.45, 0.94]
       }
     },
     exit: {
-      x: -300,
+      x: -100,
       opacity: 0,
-      scale: 0.9,
-      rotateY: -20,
+      scale: 0.95,
       transition: {
-        duration: 0.4,
+        duration: 0.2,
         ease: [0.25, 0.46, 0.45, 0.94]
       }
     }

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaUser, FaCog, FaBriefcase, FaEnvelope, FaEye, FaCouch, FaPlane, FaTshirt, FaUtensils, FaChevronDown } from 'react-icons/fa';
 import styles from './Navbar.module.css';
 
-const logoImage = '/redix.png';
+const logoImage = '/assets/logos/Redix1.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

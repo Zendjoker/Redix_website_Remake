@@ -1,42 +1,18 @@
 // src/components/Banner/Banner.jsx
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-  FaChartLine,
-  FaSearch,
-  FaUsers,
-  FaEnvelope,
-  FaBullhorn,
-  FaMobile,
-  FaLaptopCode,
-  FaRocket,
-  FaCog,
-  FaMousePointer,
-  FaInstagram,
-  FaIcons,
-  FaCode
-} from 'react-icons/fa';
-const logoImage = '/redix.png';
+const logoImage = '/assets/logos/Redix1.png';
+const worldIcon = '/assets/icons/world.png';
+const securityIcon = '/assets/icons/security.png';
+const moonIcon = '/assets/icons/moon.png';
+const tunisiaIcon = '/assets/icons/tunisia.png';
+const videoEditingIcon = '/assets/icons/video editing.png';
 import styles from './Banner.module.css';
 
 const Banner = () => {
   const bannerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  // Digital Marketing Icons Data
-  const digitalIcons = [
-    { icon: FaChartLine, name: 'Analytics', top: '15%', left: '8%', delay: 0 },
-    { icon: FaSearch, name: 'SEO', top: '25%', left: '85%', delay: 0 },
-    { icon: FaUsers, name: 'Social Media', top: '55%', left: '12%', delay: 0 },
-    { icon: FaCode, name: 'Email Marketing', top: '75%', left: '78%', delay: 1 },
-    { icon: FaBullhorn, name: 'Advertising', top: '35%', left: '15%', delay: 8 },
-    { icon: FaIcons, name: 'Mobile App', top: '65%', left: '90%', delay: 0 },
-    { icon: FaLaptopCode, name: 'Web Dev', top: '18%', left: '75%', delay: 0 },
-    { icon: FaInstagram, name: 'Growth', top: '48%', left: '88%', delay: 0 },
-    { icon: FaCog, name: 'Automation', top: '85%', left: '25%', delay: 16 },
-    { icon: FaMousePointer, name: 'UI/UX', top: '8%', left: '45%', delay: 18 }
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,55 +62,71 @@ const Banner = () => {
 
   return (
     <section className={`${styles.banner} ${isVisible ? styles.animate : ''}`} ref={bannerRef} id="home">
-      {/* Advanced Background Animations */}
+      {/* Floating Background Icons - World, Security, Moon, Tunisia */}
+      <div className={styles.floatingIcons}>
+        <motion.img 
+          src={worldIcon} 
+          alt="" 
+          className={styles.floatingIcon}
+          style={{ top: '15%', left: '8%' }}
+          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.img 
+          src={securityIcon} 
+          alt="" 
+          className={styles.floatingIcon}
+          style={{ top: '25%', right: '8%' }}
+          animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        <motion.img 
+          src={moonIcon} 
+          alt="" 
+          className={styles.floatingIcon}
+          style={{ bottom: '25%', left: '6%' }}
+          animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
+        <motion.img 
+          src={tunisiaIcon} 
+          alt="" 
+          className={styles.floatingIcon}
+          style={{ bottom: '20%', right: '6%' }}
+          animate={{ y: [0, 12, 0], scale: [1, 1.05, 1] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        />
+        <motion.img 
+          src={videoEditingIcon} 
+          alt="" 
+          className={styles.floatingIcon}
+          style={{ top: '50%', left: '3%' }}
+          animate={{ y: [0, -18, 0], rotate: [0, -8, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+        />
+        {/* Smaller duplicates for depth */}
+        <motion.img 
+          src={worldIcon} 
+          alt="" 
+          className={`${styles.floatingIcon} ${styles.small}`}
+          style={{ top: '60%', left: '12%' }}
+          animate={{ y: [0, 10, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        />
+        <motion.img 
+          src={moonIcon} 
+          alt="" 
+          className={`${styles.floatingIcon} ${styles.small}`}
+          style={{ top: '45%', right: '12%' }}
+          animate={{ y: [0, -10, 0], scale: [1, 1.05, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+        />
+      </div>
+
+      {/* Background Animations */}
       <div className={styles.backgroundAnimations}>
         {/* Animated Grid */}
-        <div className={styles.animatedGrid}>
-          {[...Array(100)].map((_, i) => (
-            <div key={i} className={styles.gridDot}></div>
-          ))}
-        </div>
-
-        {/* Digital Marketing Icons */}
-        <div className={styles.digitalIcons}>
-          {digitalIcons.map(({ icon: Icon, name, top, left, delay }, index) => (
-            <motion.div
-              key={name}
-              className={styles.digitalIcon}
-              style={{
-                top,
-                left,
-                '--delay': `${delay}s`,
-                '--index': index
-              }}
-              initial={{
-                opacity: 0,
-                y: 30,
-                scale: 0.5,
-                rotate: -45
-              }}
-              animate={isVisible ? {
-                opacity: [0, 0.8, 0.3],
-                y: [-10, 10, -10],
-                scale: [0.8, 1.2, 0.8],
-                rotate: [0, 360, 0]
-              } : {}}
-              transition={{
-                delay: delay * 0.3,
-                duration: 8 + (index % 3),
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              whileHover={{
-                scale: 1.5,
-                rotate: 15,
-                filter: 'brightness(1.5)'
-              }}
-            >
-              <Icon />
-            </motion.div>
-          ))}
-        </div>
+        <div className={styles.animatedGrid}></div>
 
         {/* Floating Geometric Shapes */}
         <div className={styles.geometricShapes}>

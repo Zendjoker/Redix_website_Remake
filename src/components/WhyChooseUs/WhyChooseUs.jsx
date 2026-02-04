@@ -11,6 +11,7 @@ import {
   FaGem,
   FaChartLine
 } from 'react-icons/fa';
+
 const WhyChooseUs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -71,8 +72,8 @@ const WhyChooseUs = () => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.6,
-        staggerChildren: 0.1
+        duration: 0.3,
+        staggerChildren: 0.05
       }
     }
   };
@@ -80,27 +81,27 @@ const WhyChooseUs = () => {
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 60,
-      scale: 0.8
+      y: 30,
+      scale: 0.95
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
         ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
 
   const headerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.4,
         ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
